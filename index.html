@@ -39,32 +39,32 @@
   <!-- PÁGINA 2 (INFORMAÇÕES) -->
   <main class="page" id="page2" aria-hidden="true">
     <div class="bg-soft" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
 
-    <section class="card" aria-label="Informações do casamento">
-      <header class="card__header">
-        <p class="kicker kicker--dark">Convite</p>
+    <section class="stage" aria-label="Detalhes do casamento">
+      <header class="top-title">
+        <p class="kicker kicker--light">Convite</p>
         <h2 class="names names--small">Marcelo & Eduarda</h2>
         <div class="divider" aria-hidden="true"></div>
       </header>
 
-      <div class="info">
-        <div class="row">
-          <span class="label">Data</span>
-          <span class="value">02 de maio de 2026</span>
+      <!-- Informações “soltas” (blocos transparentes) -->
+      <section class="floating" aria-label="Informações principais">
+        <div class="chip chip--date">
+          <span class="chip__label">Data</span>
+          <span class="chip__value">02/05/2026</span>
         </div>
-        <div class="row">
-          <span class="label">Horário</span>
-          <span class="value">10:00</span>
+
+        <div class="chip chip--time">
+          <span class="chip__label">Horário</span>
+          <span class="chip__value">10:00</span>
         </div>
-        <div class="row">
-          <span class="label">Local</span>
-          <span class="value" id="placeText">Igreja de São Sebastião — Araçaí/MG</span>
+
+        <div class="chip chip--place">
+          <span class="chip__label">Local</span>
+          <span class="chip__value" id="placeText">Igreja de São Sebastião — Araçaí/MG</span>
         </div>
-        <div class="row">
-          <span class="label">Endereço</span>
-          <span class="value" id="addressText">Igreja de São Sebastião, Araçaí — MG</span>
-        </div>
-      </div>
+      </section>
 
       <section class="countdown" aria-label="Contagem regressiva">
         <p class="countdown__title">Contagem regressiva</p>
@@ -81,17 +81,14 @@
         <a class="btn btn--light" id="btnWhats" target="_blank" rel="noopener">💬 Confirmar presença</a>
       </nav>
 
-      <p class="note">Confirme sua presença pelo WhatsApp.</p>
-
       <button class="back" id="backCover" aria-label="Voltar para a capa">Voltar</button>
-    </section>
 
-    <footer class="footer">
-      <p class="footer__text">Marcelo & Eduarda • 02/05/2026</p>
-    </footer>
+      <footer class="footer">
+        <p class="footer__text">Marcelo & Eduarda • 02/05/2026</p>
+      </footer>
+    </section>
   </main>
 
-  <!-- JS no final para garantir que os elementos já existam -->
   <script src="script.js"></script>
 </body>
 </html>
