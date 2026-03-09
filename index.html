@@ -9,7 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css" />
+  <!-- cache-busting -->
+  <link rel="stylesheet" href="styles.css?v=5" />
 </head>
 
 <body>
@@ -18,18 +19,16 @@
     <div class="cover-bg" aria-hidden="true"></div>
 
     <section class="cover" aria-label="Capa do convite">
-      <!-- Envelope clicável -->
-      <button class="envelope-btn" id="openInvite" aria-label="Toque no envelope para abrir o convite">
+      <!-- Envelope inteiro clicável (SEM lacre separado) -->
+      <button class="envelope-btn" id="openInvite" aria-label="Toque no envelope para abrir">
         <span class="envelope" aria-hidden="true"></span>
       </button>
 
       <div class="cover-text">
-        <p class="kicker">VOCÊ ESTÁ CONVIDADO(A) PARA O</p>
+        <p class="kicker">COM ALEGRIA CONVIDAMOS PARA O</p>
         <h1 class="names">Casamento de<br>Marcelo & Eduarda</h1>
-
         <p class="meta">Igreja de São Sebastião • Araçaí-MG</p>
         <p class="meta">02/05/2026 • 10:00</p>
-
         <p class="hint">Toque no envelope para abrir</p>
       </div>
     </section>
@@ -43,7 +42,7 @@
       <header class="top">
         <p class="mini">CASAMENTO</p>
         <h2 class="names names--big">Marcelo & Eduarda</h2>
-        <p class="subtitle">Com alegria convidamos você para celebrar esse momento com a gente</p>
+        <p class="subtitle">Você é nosso convidado(a) para celebrar esse momento com a gente</p>
         <div class="line" aria-hidden="true"></div>
       </header>
 
@@ -62,26 +61,14 @@
         </div>
       </div>
 
-      <section class="count" aria-label="Contagem regressiva para o casamento">
+      <section class="count" aria-label="Faltam para o casamento">
         <p class="count__title">FALTAM PARA O CASAMENTO</p>
 
         <div class="count__grid">
-          <div class="pill">
-            <span class="num" id="dd">--</span>
-            <span class="cap">DIAS</span>
-          </div>
-          <div class="pill">
-            <span class="num" id="hh">--</span>
-            <span class="cap">HORAS</span>
-          </div>
-          <div class="pill">
-            <span class="num" id="mm">--</span>
-            <span class="cap">MINUTOS</span>
-          </div>
-          <div class="pill">
-            <span class="num" id="ss">--</span>
-            <span class="cap">SEGUNDOS</span>
-          </div>
+          <div class="pill"><span class="num" id="dd">--</span><span class="cap">DIAS</span></div>
+          <div class="pill"><span class="num" id="hh">--</span><span class="cap">HORAS</span></div>
+          <div class="pill"><span class="num" id="mm">--</span><span class="cap">MINUTOS</span></div>
+          <div class="pill"><span class="num" id="ss">--</span><span class="cap">SEGUNDOS</span></div>
         </div>
       </section>
 
@@ -93,7 +80,8 @@
       <button class="back" id="backCover" aria-label="Voltar para a capa">Voltar</button>
     </section>
 
-    <script src="script.js"></script>
+    <!-- cache-busting -->
+    <script src="script.js?v=5"></script>
   </main>
 </body>
 </html>
