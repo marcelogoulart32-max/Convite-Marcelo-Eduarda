@@ -4,47 +4,42 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Convite | Marcelo & Eduarda</title>
-  <meta name="description" content="Convite de casamento de Marcelo & Eduarda — 02/05/2026 às 10:00" />
 
-  <!-- Fonte elegante (luxo minimalista) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-  <!-- Página 1 (capa) -->
+  <!-- PÁGINA 1 -->
   <main class="page page--active" id="page1" aria-hidden="false">
-    <div class="hero" role="img" aria-label="Foto do casal na capa do convite"></div>
+    <div class="cover-bg" aria-hidden="true"></div>
 
-    <div class="envelope-wrap">
-      <section class="envelope" aria-label="Envelope do convite">
-        <div class="envelope__paper">
-          <p class="tiny">Convite</p>
-          <h1 class="names">Marcelo & Eduarda</h1>
-          <p class="date">02/05/2026 • 10:00</p>
-          <p class="hint">Toque no lacre para abrir</p>
-        </div>
+    <section class="cover" aria-label="Capa do convite">
+      <div class="envelope-frame" role="img" aria-label="Envelope do convite"></div>
 
-        <!-- Lacre (clicável) -->
-        <button class="seal" id="openInvite" aria-label="Abrir convite (lacre de cera)">
-          <span class="seal__inner" aria-hidden="true"></span>
-        </button>
-      </section>
-    </div>
+      <!-- Lacre clicável -->
+      <button class="seal-btn" id="openInvite" aria-label="Abrir convite (lacre)">
+        <span class="seal-btn__text">M&E</span>
+      </button>
 
-    <footer class="footer footer--dark">
-      <p class="footer__note">Enviado com carinho pelo WhatsApp</p>
-    </footer>
+      <div class="cover-text">
+        <p class="cover-kicker">Com alegria convidamos para o</p>
+        <h1 class="cover-names">Marcelo & Eduarda</h1>
+        <p class="cover-place">Igreja de São Sebastião • Araçaí-MG</p>
+        <p class="cover-date">02/05/2026 • 10:00</p>
+        <p class="cover-hint">Toque no lacre para abrir</p>
+      </div>
+    </section>
   </main>
 
-  <!-- Página 2 (conteúdo) -->
+  <!-- PÁGINA 2 -->
   <main class="page" id="page2" aria-hidden="true">
     <div class="bg-soft" aria-hidden="true"></div>
 
-    <section class="card" aria-label="Informações do casamento">
+    <section class="card card--lux" aria-label="Informações do casamento">
       <header class="card__header">
         <p class="tiny">Com alegria convidamos para o nosso casamento</p>
         <h2 class="names names--small">Marcelo & Eduarda</h2>
@@ -62,7 +57,11 @@
         </div>
         <div class="info__row">
           <span class="label">Local</span>
-          <span class="value" id="placeText">[NOME DO LOCAL] — [CIDADE/UF]</span>
+          <span class="value" id="placeText">Igreja de São Sebastião — Araçaí/MG</span>
+        </div>
+        <div class="info__row">
+          <span class="label">Endereço</span>
+          <span class="value" id="addressText">Igreja de São Sebastião, Araçaí — MG</span>
         </div>
       </div>
 
@@ -86,11 +85,7 @@
       <button class="back" id="backCover" aria-label="Voltar para a capa">Voltar</button>
     </section>
 
-    <footer class="footer">
-      <p class="footer__note">Marcelo & Eduarda • 02/05/2026</p>
-    </footer>
+    <script src="script.js"></script>
   </main>
-
-  <script src="script.js"></script>
 </body>
 </html>
