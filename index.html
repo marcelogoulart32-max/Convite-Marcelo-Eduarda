@@ -4,7 +4,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Convite | Marcelo & Eduarda</title>
-  <meta name="description" content="Convite de casamento de Marcelo & Eduarda — 02/05/2026 às 10:00" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,81 +13,91 @@
 </head>
 
 <body>
-  <!-- PÁGINA 1 (CAPA) -->
+  <!-- PÁGINA 1 (ENVELOPE) -->
   <main class="page page--active" id="page1" aria-hidden="false">
     <div class="cover-bg" aria-hidden="true"></div>
 
-    <section class="cover" aria-label="Capa do convite">
+    <section class="cover" aria-label="Capa do convite (envelope)">
       <div class="envelope" role="img" aria-label="Envelope do convite"></div>
 
-      <!-- LACRE CLICÁVEL -->
-      <button class="seal" id="openInvite" aria-label="Abrir convite">
+      <!-- LACRE MENOR -->
+      <button class="seal" id="openInvite" aria-label="Abrir convite (lacre)">
         <span class="seal__text">M&E</span>
-        <span class="seal__hint">Toque para abrir</span>
       </button>
 
       <div class="cover-text">
-        <p class="kicker">Com alegria convidamos para o nosso casamento</p>
+        <p class="kicker">COM ALEGRIA CONVIDAMOS PARA O</p>
         <h1 class="names">Marcelo & Eduarda</h1>
+        <p class="meta">Igreja de São Sebastião • Araçaí-MG</p>
         <p class="meta">02/05/2026 • 10:00</p>
-        <p class="meta2">Igreja de São Sebastião • Araçaí-MG</p>
+        <p class="hint">Toque no lacre para abrir</p>
       </div>
     </section>
   </main>
 
   <!-- PÁGINA 2 (INFORMAÇÕES) -->
   <main class="page" id="page2" aria-hidden="true">
-    <div class="bg-soft" aria-hidden="true"></div>
-    <div class="vignette" aria-hidden="true"></div>
+    <div class="bg-photo" aria-hidden="true"></div>
 
-    <section class="stage" aria-label="Detalhes do casamento">
-      <header class="top-title">
-        <p class="kicker kicker--light">Convite</p>
-        <h2 class="names names--small">Marcelo & Eduarda</h2>
-        <div class="divider" aria-hidden="true"></div>
+    <section class="panel" aria-label="Convite (informações e contagem regressiva)">
+      <header class="top">
+        <p class="mini">CONVITE</p>
+        <h2 class="names names--big">Marcelo & Eduarda</h2>
+        <div class="line" aria-hidden="true"></div>
       </header>
 
-      <!-- Informações “soltas” (blocos transparentes) -->
-      <section class="floating" aria-label="Informações principais">
-        <div class="chip chip--date">
-          <span class="chip__label">Data</span>
-          <span class="chip__value">02/05/2026</span>
+      <div class="details">
+        <div class="drow">
+          <span class="dlabel">Data</span>
+          <span class="dvalue">02/05/2026</span>
         </div>
-
-        <div class="chip chip--time">
-          <span class="chip__label">Horário</span>
-          <span class="chip__value">10:00</span>
+        <div class="drow">
+          <span class="dlabel">Horário</span>
+          <span class="dvalue">10:00</span>
         </div>
+        <div class="drow">
+          <span class="dlabel">Local</span>
+          <span class="dvalue" id="placeText">Igreja de São Sebastião — Araçaí/MG</span>
+        </div>
+        <div class="drow">
+          <span class="dlabel">Endereço</span>
+          <span class="dvalue" id="addressText">Igreja de São Sebastião, Araçaí — MG</span>
+        </div>
+      </div>
 
-        <div class="chip chip--place">
-          <span class="chip__label">Local</span>
-          <span class="chip__value" id="placeText">Igreja de São Sebastião — Araçaí/MG</span>
+      <section class="count" aria-label="Contagem regressiva para o casamento">
+        <p class="count__title">FALTAM PARA O CASAMENTO</p>
+        <p class="count__sub">Contagem regressiva até 02/05/2026 às 10:00</p>
+
+        <div class="count__grid">
+          <div class="pill">
+            <span class="num" id="dd">--</span>
+            <span class="cap">DIAS</span>
+          </div>
+          <div class="pill">
+            <span class="num" id="hh">--</span>
+            <span class="cap">HORAS</span>
+          </div>
+          <div class="pill">
+            <span class="num" id="mm">--</span>
+            <span class="cap">MINUTOS</span>
+          </div>
+          <div class="pill">
+            <span class="num" id="ss">--</span>
+            <span class="cap">SEGUNDOS</span>
+          </div>
         </div>
       </section>
 
-      <section class="countdown" aria-label="Contagem regressiva">
-        <p class="countdown__title">Contagem regressiva</p>
-        <div class="countdown__grid">
-          <div class="pill"><span class="num" id="dd">--</span><span class="cap">dias</span></div>
-          <div class="pill"><span class="num" id="hh">--</span><span class="cap">horas</span></div>
-          <div class="pill"><span class="num" id="mm">--</span><span class="cap">min</span></div>
-          <div class="pill"><span class="num" id="ss">--</span><span class="cap">seg</span></div>
-        </div>
-      </section>
-
-      <nav class="actions" aria-label="Ações do convite">
+      <nav class="actions" aria-label="Ações">
         <a class="btn btn--gold" id="btnMaps" target="_blank" rel="noopener">📍 Localização</a>
-        <a class="btn btn--light" id="btnWhats" target="_blank" rel="noopener">💬 Confirmar presença</a>
+        <a class="btn btn--ghost" id="btnWhats" target="_blank" rel="noopener">💬 Confirmar presença</a>
       </nav>
 
-      <button class="back" id="backCover" aria-label="Voltar para a capa">Voltar</button>
-
-      <footer class="footer">
-        <p class="footer__text">Marcelo & Eduarda • 02/05/2026</p>
-      </footer>
+      <button class="back" id="backCover" aria-label="Voltar para o envelope">Voltar</button>
     </section>
-  </main>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
+  </main>
 </body>
 </html>
