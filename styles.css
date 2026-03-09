@@ -1,91 +1,283 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Convite | Marcelo & Eduarda</title>
+:root{
+  --bg:#07080b;
+  --ink:#14151a;
+  --muted: rgba(20,21,26,.65);
+  --paper: rgba(255,255,255,.92);
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  --gold:#b79b5b;
+  --gold2:#eadbb6;
 
-  <link rel="stylesheet" href="styles.css" />
-</head>
+  --radius: 24px;
+  --shadow: 0 26px 70px rgba(0,0,0,.42);
+}
 
-<body>
-  <!-- PÁGINA 1 -->
-  <main class="page page--active" id="page1" aria-hidden="false">
-    <div class="cover-bg" aria-hidden="true"></div>
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
 
-    <section class="cover" aria-label="Capa do convite">
-      <div class="envelope-frame" role="img" aria-label="Envelope do convite"></div>
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: radial-gradient(1200px 800px at 50% 10%, rgba(255,255,255,.06), transparent 60%),
+              radial-gradient(1000px 700px at 50% 35%, rgba(183,155,91,.16), transparent 55%),
+              var(--bg);
+  color:#fff;
+}
 
-      <!-- Lacre clicável -->
-      <button class="seal-btn" id="openInvite" aria-label="Abrir convite (lacre)">
-        <span class="seal-btn__text">M&E</span>
-      </button>
+.page{ min-height:100dvh; display:none; position:relative; overflow:hidden; }
+.page--active{ display:block; }
 
-      <div class="cover-text">
-        <p class="cover-kicker">Com alegria convidamos para o</p>
-        <h1 class="cover-names">Marcelo & Eduarda</h1>
-        <p class="cover-place">Igreja de São Sebastião • Araçaí-MG</p>
-        <p class="cover-date">02/05/2026 • 10:00</p>
-        <p class="cover-hint">Toque no lacre para abrir</p>
-      </div>
-    </section>
-  </main>
+/* ---------------- CAPA ---------------- */
+.cover-bg{
+  position:absolute; inset:0;
+  background: radial-gradient(900px 520px at 50% 35%, rgba(183,155,91,.22), transparent 60%),
+              linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.88));
+}
 
-  <!-- PÁGINA 2 -->
-  <main class="page" id="page2" aria-hidden="true">
-    <div class="bg-soft" aria-hidden="true"></div>
+.cover{
+  position:relative;
+  min-height:100dvh;
+  display:grid;
+  place-items:center;
+  padding: 20px 14px 26px;
+  text-align:center;
+}
 
-    <section class="card card--lux" aria-label="Informações do casamento">
-      <header class="card__header">
-        <p class="tiny">Com alegria convidamos para o nosso casamento</p>
-        <h2 class="names names--small">Marcelo & Eduarda</h2>
-        <div class="divider" aria-hidden="true"></div>
-      </header>
+.envelope{
+  width: min(560px, 94vw);
+  aspect-ratio: 4 / 5;
+  background: url("assets/envelope.webp") center/contain no-repeat;
+  filter: drop-shadow(0 18px 46px rgba(0,0,0,.60));
+}
 
-      <div class="info">
-        <div class="info__row">
-          <span class="label">Data</span>
-          <span class="value">02 de maio de 2026</span>
-        </div>
-        <div class="info__row">
-          <span class="label">Horário</span>
-          <span class="value">10:00</span>
-        </div>
-        <div class="info__row">
-          <span class="label">Local</span>
-          <span class="value" id="placeText">Igreja de São Sebastião — Araçaí/MG</span>
-        </div>
-        <div class="info__row">
-          <span class="label">Endereço</span>
-          <span class="value" id="addressText">Igreja de São Sebastião, Araçaí — MG</span>
-        </div>
-      </div>
+/* Lacre */
+.seal{
+  position:absolute;
+  /* posição do lacre em cima do envelope (ajuste fino se quiser) */
+  top: 52%;
+  transform: translateY(-5%);
+  width: 96px;
+  height: 96px;
+  border: none;
+  border-radius: 999px;
+  cursor:pointer;
 
-      <section class="countdown" aria-label="Contagem regressiva">
-        <p class="countdown__title">Contagem regressiva</p>
-        <div class="countdown__grid" role="group" aria-label="Tempo restante até o casamento">
-          <div class="pill"><span class="num" id="dd">--</span><span class="cap">dias</span></div>
-          <div class="pill"><span class="num" id="hh">--</span><span class="cap">horas</span></div>
-          <div class="pill"><span class="num" id="mm">--</span><span class="cap">min</span></div>
-          <div class="pill"><span class="num" id="ss">--</span><span class="cap">seg</span></div>
-        </div>
-      </section>
+  background: radial-gradient(circle at 30% 30%, #f7eed6, #caa85f 55%, #7a5a2a);
+  box-shadow: 0 20px 44px rgba(0,0,0,.45);
 
-      <nav class="actions" aria-label="Ações do convite">
-        <a class="btn btn--primary" id="btnMaps" target="_blank" rel="noopener">📍 Localização</a>
-        <a class="btn btn--ghost" id="btnWhats" target="_blank" rel="noopener">💬 Confirmar presença</a>
-      </nav>
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap: 4px;
+}
 
-      <p class="rsvp-note">Confirme sua presença pelo WhatsApp.</p>
+.seal::after{
+  content:"";
+  position:absolute; inset:9px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.22);
+}
 
-      <button class="back" id="backCover" aria-label="Voltar para a capa">Voltar</button>
-    </section>
+.seal__text{
+  position:relative;
+  font-family:"Playfair Display", Georgia, serif;
+  font-weight:600;
+  font-size: 1.1rem;
+  letter-spacing:.10em;
+  color: rgba(44,30,10,.86);
+  text-shadow: 0 1px 0 rgba(255,255,255,.35);
+}
 
-    <script src="script.js"></script>
-  </main>
-</body>
-</html>
+.seal__hint{
+  position:relative;
+  font-size:.70rem;
+  color: rgba(44,30,10,.72);
+}
+
+.cover-text{
+  width: min(560px, 94vw);
+  margin-top: 12px;
+}
+
+.kicker{
+  margin: 10px 0 6px;
+  letter-spacing:.26em;
+  text-transform:uppercase;
+  font-size:.72rem;
+  color: rgba(255,255,255,.72);
+}
+
+.names{
+  margin: 0;
+  font-family:"Playfair Display", Georgia, serif;
+  font-weight:600;
+  font-size: clamp(2.05rem, 7vw, 2.75rem);
+}
+
+.names--small{
+  font-size: clamp(1.85rem, 5.8vw, 2.25rem);
+  text-align:center;
+}
+
+.meta, .meta2{
+  margin: 10px 0 0;
+  color: rgba(255,255,255,.80);
+  font-size: .98rem;
+}
+
+/* ---------------- PÁGINA 2 ---------------- */
+.bg-soft{
+  position:absolute; inset:0;
+  background:
+    radial-gradient(1200px 900px at 50% 0%, rgba(183,155,91,.14), transparent 60%),
+    linear-gradient(to bottom, rgba(6,7,10,.72), rgba(6,7,10,.92)),
+    url("assets/foto-fundo.webp") center/cover no-repeat;
+  opacity: .55;
+  transform: scale(1.02);
+  filter: saturate(.95);
+}
+
+.card{
+  position:relative;
+  width:min(760px, 92vw);
+  margin: 26px auto 18px;
+  padding: 22px 18px 18px;
+  background: rgba(255,255,255,.92);
+  color: var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255,255,255,.30);
+}
+
+.card__header{ text-align:center; }
+.kicker--dark{ color: rgba(20,21,26,.60); margin-top: 2px; }
+
+.divider{
+  width: 150px;
+  height: 1px;
+  margin: 14px auto 0;
+  background: linear-gradient(90deg, transparent, rgba(183,155,91,.95), transparent);
+}
+
+.info{
+  display:grid;
+  gap: 10px;
+  padding: 14px 6px 6px;
+}
+
+.row{
+  display:flex;
+  justify-content:space-between;
+  gap: 12px;
+  padding: 12px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,.06);
+  background: rgba(255,255,255,.72);
+}
+
+.label{
+  color: rgba(20,21,26,.62);
+  font-size:.92rem;
+}
+
+.value{
+  font-weight: 700;
+  font-size:.98rem;
+  text-align:right;
+}
+
+/* Countdown */
+.countdown{ margin-top: 12px; padding: 10px 6px 6px; }
+.countdown__title{
+  margin: 0 0 10px;
+  text-align:center;
+  color: rgba(20,21,26,.68);
+  font-size:.95rem;
+}
+.countdown__grid{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.pill{
+  text-align:center;
+  border-radius: 18px;
+  padding: 12px 8px;
+  background: rgba(183,155,91,.08);
+  border: 1px solid rgba(183,155,91,.20);
+}
+.num{
+  display:block;
+  font-family:"Playfair Display", Georgia, serif;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+.cap{
+  display:block;
+  margin-top:2px;
+  font-size:.82rem;
+  color: rgba(20,21,26,.65);
+}
+
+/* Botões */
+.actions{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 14px 6px 6px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap: 10px;
+  text-decoration:none;
+  padding: 13px 12px;
+  border-radius: 18px;
+  font-weight: 800;
+  font-size: 1rem;
+  border: 1px solid rgba(0,0,0,.10);
+}
+
+.btn--gold{
+  background: linear-gradient(180deg, var(--gold2), var(--gold));
+  color: #1a1407;
+}
+
+.btn--light{
+  background: rgba(255,255,255,.78);
+  color: var(--ink);
+}
+
+.note{
+  text-align:center;
+  margin: 12px 0 2px;
+  color: rgba(20,21,26,.65);
+  font-size: .92rem;
+}
+
+.back{
+  width:100%;
+  margin-top: 10px;
+  padding: 12px 12px;
+  border-radius: 18px;
+  border: 1px solid rgba(0,0,0,.10);
+  background: rgba(0,0,0,.04);
+  cursor:pointer;
+  font-weight: 800;
+  color: rgba(20,21,26,.86);
+}
+
+.footer{
+  position:relative;
+  padding: 10px 16px 22px;
+  text-align:center;
+  color: rgba(255,255,255,.70);
+}
+.footer__text{ margin:0; font-size:.92rem; }
+
+@media (max-width: 420px){
+  .countdown__grid{ grid-template-columns: repeat(2, 1fr); }
+  .actions{ grid-template-columns: 1fr; }
+}
