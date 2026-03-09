@@ -1,6 +1,3 @@
-// =====================
-// CONFIGURAÇÕES
-// =====================
 const WEDDING_ISO = "2026-05-02T10:00:00-03:00";
 const MAPS_URL = "https://maps.app.goo.gl/cv66B7RYLVyME1iA7";
 
@@ -9,7 +6,6 @@ const WHATS_MESSAGE = "Olá! Confirmo minha presença no casamento de Marcelo & 
 
 const PLACE_TEXT = "Igreja de São Sebastião — Araçaí/MG";
 
-// =====================
 const $ = (s) => document.querySelector(s);
 const pad = (n) => String(n).padStart(2, "0");
 
@@ -79,7 +75,6 @@ function switchPages(show2) {
 }
 
 function bindUI() {
-  // Agora quem abre é o ENVELOPE (botão inteiro)
   const openBtn = $("#openInvite");
   if (openBtn) openBtn.addEventListener("click", () => switchPages(true));
 
