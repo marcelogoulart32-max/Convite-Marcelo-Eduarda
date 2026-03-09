@@ -8,7 +8,6 @@ const WHATS_NUMBER = "5531972444043";
 const WHATS_MESSAGE = "Olá! Confirmo minha presença no casamento de Marcelo & Eduarda.";
 
 const PLACE_TEXT = "Igreja de São Sebastião — Araçaí/MG";
-const ADDRESS_TEXT = "Igreja de São Sebastião, Araçaí — MG";
 
 // =====================
 const $ = (s) => document.querySelector(s);
@@ -26,9 +25,6 @@ function setLinks() {
 
   const placeEl = $("#placeText");
   if (placeEl) placeEl.textContent = PLACE_TEXT;
-
-  const addressEl = $("#addressText");
-  if (addressEl) addressEl.textContent = ADDRESS_TEXT;
 }
 
 function startCountdown() {
