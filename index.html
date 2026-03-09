@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Convite | Marcelo & Eduarda</title>
+  <title>Casamento | Marcelo & Eduarda</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,38 +13,37 @@
 </head>
 
 <body>
-  <!-- PÁGINA 1 (ENVELOPE) -->
+  <!-- PÁGINA 1 -->
   <main class="page page--active" id="page1" aria-hidden="false">
     <div class="cover-bg" aria-hidden="true"></div>
 
-    <section class="cover" aria-label="Capa do convite (envelope)">
-      <div class="envelope-wrap" aria-label="Envelope com lacre">
-        <div class="envelope" role="img" aria-label="Envelope do convite"></div>
-
-        <!-- Lacre grudado no envelope -->
-        <button class="seal" id="openInvite" aria-label="Abrir convite (lacre)">
-          <span class="seal__text">M&E</span>
-        </button>
-      </div>
+    <section class="cover" aria-label="Capa do convite">
+      <!-- Envelope clicável -->
+      <button class="envelope-btn" id="openInvite" aria-label="Toque no envelope para abrir o convite">
+        <span class="envelope" aria-hidden="true"></span>
+      </button>
 
       <div class="cover-text">
-        <p class="kicker">COM ALEGRIA CONVIDAMOS PARA O</p>
-        <h1 class="names">Marcelo & Eduarda</h1>
+        <p class="kicker">VOCÊ ESTÁ CONVIDADO(A) PARA O</p>
+        <h1 class="names">Casamento de<br>Marcelo & Eduarda</h1>
+
         <p class="meta">Igreja de São Sebastião • Araçaí-MG</p>
         <p class="meta">02/05/2026 • 10:00</p>
-        <p class="hint">Toque no lacre para abrir</p>
+
+        <p class="hint">Toque no envelope para abrir</p>
       </div>
     </section>
   </main>
 
-  <!-- PÁGINA 2 (INFORMAÇÕES) -->
+  <!-- PÁGINA 2 -->
   <main class="page" id="page2" aria-hidden="true">
     <div class="bg-photo" aria-hidden="true"></div>
 
-    <section class="panel" aria-label="Convite (informações e contagem regressiva)">
+    <section class="panel" aria-label="Informações do casamento">
       <header class="top">
-        <p class="mini">CONVITE</p>
+        <p class="mini">CASAMENTO</p>
         <h2 class="names names--big">Marcelo & Eduarda</h2>
+        <p class="subtitle">Com alegria convidamos você para celebrar esse momento com a gente</p>
         <div class="line" aria-hidden="true"></div>
       </header>
 
@@ -91,7 +90,7 @@
         <a class="btn btn--ghost" id="btnWhats" target="_blank" rel="noopener">💬 Confirmar presença</a>
       </nav>
 
-      <button class="back" id="backCover" aria-label="Voltar para o envelope">Voltar</button>
+      <button class="back" id="backCover" aria-label="Voltar para a capa">Voltar</button>
     </section>
 
     <script src="script.js"></script>
