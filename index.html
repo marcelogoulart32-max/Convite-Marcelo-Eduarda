@@ -18,12 +18,14 @@
     <div class="cover-bg" aria-hidden="true"></div>
 
     <section class="cover" aria-label="Capa do convite (envelope)">
-      <div class="envelope" role="img" aria-label="Envelope do convite"></div>
+      <div class="envelope-wrap" aria-label="Envelope com lacre">
+        <div class="envelope" role="img" aria-label="Envelope do convite"></div>
 
-      <!-- LACRE MENOR -->
-      <button class="seal" id="openInvite" aria-label="Abrir convite (lacre)">
-        <span class="seal__text">M&E</span>
-      </button>
+        <!-- Lacre grudado no envelope -->
+        <button class="seal" id="openInvite" aria-label="Abrir convite (lacre)">
+          <span class="seal__text">M&E</span>
+        </button>
+      </div>
 
       <div class="cover-text">
         <p class="kicker">COM ALEGRIA CONVIDAMOS PARA O</p>
@@ -59,15 +61,10 @@
           <span class="dlabel">Local</span>
           <span class="dvalue" id="placeText">Igreja de São Sebastião — Araçaí/MG</span>
         </div>
-        <div class="drow">
-          <span class="dlabel">Endereço</span>
-          <span class="dvalue" id="addressText">Igreja de São Sebastião, Araçaí — MG</span>
-        </div>
       </div>
 
       <section class="count" aria-label="Contagem regressiva para o casamento">
         <p class="count__title">FALTAM PARA O CASAMENTO</p>
-        <p class="count__sub">Contagem regressiva até 02/05/2026 às 10:00</p>
 
         <div class="count__grid">
           <div class="pill">
