@@ -19,7 +19,6 @@ body{
 .page--active{ display:block; }
 
 /* ---------- PÁGINA 1 ---------- */
-/* Agora a foto-capa.webp aparece como fundo da capa */
 .cover-bg{
   position:absolute; inset:0;
   background:
@@ -33,14 +32,22 @@ body{
   min-height:100dvh;
   display:grid;
   place-items:center;
-  padding: 20px 14px 26px;
+  padding: 18px 14px 24px;
   text-align:center;
 }
 
-.envelope-wrap{
-  position:relative;
+/* Envelope clicável (melhor no celular) */
+.envelope-btn{
+  -webkit-tap-highlight-color: transparent;
+  appearance: none;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+
   width: min(560px, 94vw);
   aspect-ratio: 4 / 5;
+
   display:grid;
   place-items:center;
 }
@@ -50,53 +57,24 @@ body{
   height: 100%;
   background: url("assets/envelope.webp") center/contain no-repeat;
   filter: drop-shadow(0 18px 46px rgba(0,0,0,.60));
+  transform: translateY(0);
+  transition: transform .18s ease, filter .18s ease;
 }
 
-/* LACRE (colado no envelope) */
-.seal{
-  position:absolute;
-  left: 50%;
-  bottom: 22%;
-  transform: translate(-50%, 50%);
-
-  width: 62px;
-  height: 62px;
-  border: none;
-  border-radius: 999px;
-  cursor:pointer;
-
-  background: radial-gradient(circle at 30% 30%, #f7eed6, #caa85f 55%, #7a5a2a);
-  box-shadow: 0 18px 38px rgba(0,0,0,.45);
-
-  display:grid;
-  place-items:center;
-}
-
-.seal::after{
-  content:"";
-  position:absolute; inset:6px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.22);
-}
-
-.seal__text{
-  position:relative;
-  font-family:"Playfair Display", Georgia, serif;
-  font-weight:600;
-  font-size: .92rem;
-  letter-spacing:.08em;
-  color: rgba(44,30,10,.86);
-  text-shadow: 0 1px 0 rgba(255,255,255,.35);
+/* feedback visual ao tocar */
+.envelope-btn:active .envelope{
+  transform: translateY(2px) scale(.995);
+  filter: drop-shadow(0 14px 36px rgba(0,0,0,.55));
 }
 
 .cover-text{
-  width: min(560px, 94vw);
+  width: min(620px, 94vw);
   margin-top: 12px;
 }
 
 .kicker{
   margin: 10px 0 6px;
-  letter-spacing:.26em;
+  letter-spacing:.24em;
   text-transform:uppercase;
   font-size:.72rem;
   color: rgba(255,255,255,.76);
@@ -107,11 +85,12 @@ body{
   font-family:"Playfair Display", Georgia, serif;
   font-weight:600;
   font-size: clamp(2.05rem, 7vw, 2.75rem);
+  line-height: 1.05;
 }
 
 .meta{
   margin: 10px 0 0;
-  color: rgba(255,255,255,.85);
+  color: rgba(255,255,255,.86);
   font-size: .98rem;
 }
 
@@ -121,15 +100,10 @@ body{
   font-size: .95rem;
 }
 
-/* Se você quiser REMOVER o lacre, descomente: */
-/* .seal{ display:none; } */
-
-
-/* ---------- PÁGINA 2 (NÍTIDA) ---------- */
+/* ---------- PÁGINA 2 ---------- */
 .bg-photo{
   position:absolute; inset:0;
   background:
-    /* overlay mais leve (mais nítida) */
     linear-gradient(to bottom, rgba(0,0,0,.22), rgba(0,0,0,.62)),
     url("assets/foto-fundo.webp") center/cover no-repeat;
   filter: contrast(1.14) saturate(1.10) brightness(1.04);
@@ -138,8 +112,8 @@ body{
 
 .panel{
   position:relative;
-  width:min(820px, 94vw);
-  margin: 18px auto 18px;
+  width:min(860px, 94vw);
+  margin: 16px auto 18px;
   padding: 18px 16px 16px;
   border-radius: var(--radius);
   background: rgba(10,10,12,.30);
@@ -150,7 +124,7 @@ body{
 
 .top{
   text-align:center;
-  padding: 6px 6px 10px;
+  padding: 6px 6px 8px;
 }
 
 .mini{
@@ -158,16 +132,23 @@ body{
   letter-spacing:.30em;
   text-transform:uppercase;
   font-size:.72rem;
-  color: rgba(255,255,255,.72);
+  color: rgba(255,255,255,.74);
 }
 
 .names--big{
-  font-size: clamp(2.0rem, 5.5vw, 2.6rem);
-  margin-top: 8px;
+  font-size: clamp(2.0rem, 5.6vw, 2.65rem);
+  margin: 8px 0 6px;
+}
+
+.subtitle{
+  margin: 0;
+  font-size: .92rem;
+  color: rgba(255,255,255,.74);
+  line-height: 1.25;
 }
 
 .line{
-  width: 160px;
+  width: 170px;
   height: 1px;
   margin: 12px auto 0;
   background: linear-gradient(90deg, transparent, rgba(183,155,91,.95), transparent);
@@ -177,7 +158,7 @@ body{
 .details{
   display:grid;
   gap: 10px;
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 .drow{
@@ -202,7 +183,7 @@ body{
   color: rgba(255,255,255,.94);
 }
 
-/* contagem (só o título + cronômetro) */
+/* contagem */
 .count{
   margin-top: 14px;
   padding-top: 6px;
@@ -234,7 +215,7 @@ body{
 .num{
   display:block;
   font-family:"Playfair Display", Georgia, serif;
-  font-size: 1.8rem;
+  font-size: 1.85rem;
   font-weight: 600;
   color: rgba(255,255,255,.96);
 }
