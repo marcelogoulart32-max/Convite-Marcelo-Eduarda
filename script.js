@@ -79,6 +79,7 @@ function switchPages(show2) {
 }
 
 function bindUI() {
+  // Agora quem abre é o ENVELOPE (botão inteiro)
   const openBtn = $("#openInvite");
   if (openBtn) openBtn.addEventListener("click", () => switchPages(true));
 
