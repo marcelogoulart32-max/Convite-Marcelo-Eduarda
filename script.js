@@ -2,48 +2,43 @@
 // CONFIGURAÇÕES
 // =====================
 
-// Data/hora do casamento (02/05/2026 às 10:00 no Brasil -03:00)
+// Casamento: 02/05/2026 às 10:00 (Brasil -03:00)
 const WEDDING_ISO = "2026-05-02T10:00:00-03:00";
 
-// Link do Google Maps (o botão "Localização" vai abrir isso)
+// Botão Localização (Maps)
 const MAPS_URL = "https://maps.app.goo.gl/cv66B7RYLVyME1iA7";
 
-// WhatsApp: +55 31 97244-4043 (formato wa.me = só números)
+// Botão Confirmar presença (WhatsApp)
 const WHATS_NUMBER = "5531972444043";
 const WHATS_MESSAGE = "Olá! Confirmo minha presença no casamento de Marcelo & Eduarda.";
 
-// Textos que aparecem escritos no convite (página 2)
+// Textos exibidos na página 2
 const PLACE_TEXT = "Igreja de São Sebastião — Araçaí/MG";
 const ADDRESS_TEXT = "Igreja de São Sebastião, Araçaí — MG";
 
 // =====================
-// FUNÇÕES AUXILIARES
+// UTILITÁRIOS
 // =====================
-
-function $(selector) {
-  return document.querySelector(selector);
-}
-
-function pad(n) {
-  return String(n).padStart(2, "0");
-}
+const $ = (s) => document.querySelector(s);
+const pad = (n) => String(n).padStart(2, "0");
 
 // =====================
-// 1) setLinks()  ✅ (explico abaixo)
+// setLinks()
+// Fica AQUI dentro do script.js ✅
 // =====================
 function setLinks() {
-  // Botão de localização
+  // 1) Link do Maps
   const btnMaps = $("#btnMaps");
   if (btnMaps) btnMaps.href = MAPS_URL;
 
-  // Botão de WhatsApp (com mensagem pronta)
+  // 2) Link do WhatsApp com mensagem pronta
   const btnWhats = $("#btnWhats");
   if (btnWhats) {
     const text = encodeURIComponent(WHATS_MESSAGE);
     btnWhats.href = `https://wa.me/${WHATS_NUMBER}?text=${text}`;
   }
 
-  // Textos de local/endereço (se existirem no HTML)
+  // 3) Preencher textos de local e endereço
   const placeEl = $("#placeText");
   if (placeEl) placeEl.textContent = PLACE_TEXT;
 
@@ -52,15 +47,10 @@ function setLinks() {
 }
 
 // =====================
-// 2) Contagem regressiva
+// CONTAGEM REGRESSIVA
 // =====================
 function startCountdown() {
-  const dd = $("#dd"),
-    hh = $("#hh"),
-    mm = $("#mm"),
-    ss = $("#ss");
-
-  // Se não existir o bloco no HTML, não faz nada
+  const dd = $("#dd"), hh = $("#hh"), mm = $("#mm"), ss = $("#ss");
   if (!dd || !hh || !mm || !ss) return;
 
   const target = new Date(WEDDING_ISO).getTime();
@@ -91,14 +81,14 @@ function startCountdown() {
 }
 
 // =====================
-// 3) Troca de páginas (lacre abre / voltar fecha)
+// TROCA DE PÁGINAS
 // =====================
-function switchPages(showSecondPage) {
+function switchPages(show2) {
   const p1 = $("#page1");
   const p2 = $("#page2");
   if (!p1 || !p2) return;
 
-  if (showSecondPage) {
+  if (show2) {
     p1.classList.remove("page--active");
     p1.setAttribute("aria-hidden", "true");
     p2.classList.add("page--active");
@@ -122,7 +112,7 @@ function bindUI() {
 }
 
 // =====================
-// INICIALIZAÇÃO
+// INICIALIZAÇÃO (roda quando abre o site)
 // =====================
 setLinks();
 startCountdown();
