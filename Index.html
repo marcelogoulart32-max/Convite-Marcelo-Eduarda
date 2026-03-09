@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Convite | Marcelo & Eduarda</title>
+  <meta name="description" content="Convite de casamento de Marcelo & Eduarda — 02/05/2026 às 10:00" />
+
+  <!-- Fonte elegante (luxo minimalista) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Página 1 (capa) -->
+  <main class="page page--active" id="page1" aria-hidden="false">
+    <div class="hero" role="img" aria-label="Foto do casal na capa do convite"></div>
+
+    <div class="envelope-wrap">
+      <section class="envelope" aria-label="Envelope do convite">
+        <div class="envelope__paper">
+          <p class="tiny">Convite</p>
+          <h1 class="names">Marcelo & Eduarda</h1>
+          <p class="date">02/05/2026 • 10:00</p>
+          <p class="hint">Toque no lacre para abrir</p>
+        </div>
+
+        <!-- Lacre (clicável) -->
+        <button class="seal" id="openInvite" aria-label="Abrir convite (lacre de cera)">
+          <span class="seal__inner" aria-hidden="true"></span>
+        </button>
+      </section>
+    </div>
+
+    <footer class="footer footer--dark">
+      <p class="footer__note">Enviado com carinho pelo WhatsApp</p>
+    </footer>
+  </main>
+
+  <!-- Página 2 (conteúdo) -->
+  <main class="page" id="page2" aria-hidden="true">
+    <div class="bg-soft" aria-hidden="true"></div>
+
+    <section class="card" aria-label="Informações do casamento">
+      <header class="card__header">
+        <p class="tiny">Com alegria convidamos para o nosso casamento</p>
+        <h2 class="names names--small">Marcelo & Eduarda</h2>
+        <div class="divider" aria-hidden="true"></div>
+      </header>
+
+      <div class="info">
+        <div class="info__row">
+          <span class="label">Data</span>
+          <span class="value">02 de maio de 2026</span>
+        </div>
+        <div class="info__row">
+          <span class="label">Horário</span>
+          <span class="value">10:00</span>
+        </div>
+        <div class="info__row">
+          <span class="label">Local</span>
+          <span class="value" id="placeText">[NOME DO LOCAL] — [CIDADE/UF]</span>
+        </div>
+      </div>
+
+      <section class="countdown" aria-label="Contagem regressiva">
+        <p class="countdown__title">Contagem regressiva</p>
+        <div class="countdown__grid" role="group" aria-label="Tempo restante até o casamento">
+          <div class="pill"><span class="num" id="dd">--</span><span class="cap">dias</span></div>
+          <div class="pill"><span class="num" id="hh">--</span><span class="cap">horas</span></div>
+          <div class="pill"><span class="num" id="mm">--</span><span class="cap">min</span></div>
+          <div class="pill"><span class="num" id="ss">--</span><span class="cap">seg</span></div>
+        </div>
+      </section>
+
+      <nav class="actions" aria-label="Ações do convite">
+        <a class="btn btn--primary" id="btnMaps" target="_blank" rel="noopener">📍 Localização</a>
+        <a class="btn btn--ghost" id="btnWhats" target="_blank" rel="noopener">💬 Confirmar presença</a>
+      </nav>
+
+      <p class="rsvp-note">Confirme sua presença pelo WhatsApp.</p>
+
+      <button class="back" id="backCover" aria-label="Voltar para a capa">Voltar</button>
+    </section>
+
+    <footer class="footer">
+      <p class="footer__note">Marcelo & Eduarda • 02/05/2026</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
